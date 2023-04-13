@@ -1,5 +1,5 @@
-import {Container, Text, createStyles, rem, Button, ThemeIcon, SimpleGrid} from '@mantine/core'
-import {IconMovie, IconSearch, IconDeviceTv} from "@tabler/icons-react"
+import {Container, Text, createStyles, rem, Button, ThemeIcon, SimpleGrid, ActionIcon, useMantineColorScheme} from '@mantine/core'
+import {IconMovie, IconSearch, IconDeviceTv, IconSunHigh, IconMoon} from "@tabler/icons-react"
 
 const useStyles = createStyles(theme => ({
   wrapper: {
@@ -9,7 +9,7 @@ const useStyles = createStyles(theme => ({
   },
   inner: {
     position: 'relative',
-    paddingTop: rem(200),
+    paddingTop: rem(180),
   },
   title: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
@@ -49,9 +49,13 @@ function Feature({icon: Icon, title, description} : FeatureProps) {
 
 
 export default () => {
+  const {colorScheme, toggleColorScheme}= useMantineColorScheme();
   const {classes} = useStyles();
   return (
     <div className={classes.wrapper}>
+      <ActionIcon radius={15} variant='light' color={colorScheme =='light'?'gray.9':'teal'} size={50} mt={30} ml={30} onClick={() => toggleColorScheme()}>
+        {colorScheme == 'light'?<IconMoon />:<IconSunHigh />}
+      </ActionIcon>
       <Container className={classes.inner}>
       <h1 className={classes.title}><Text component='span' variant='gradient' gradient={{from: 'teal', to: 'indigo', deg: 25}}>FilmFaves</Text> Your Personalized Movie Recommendation Engine</h1>
       <Text className={classes.description} color='dimmed'>Find Your Next Favorite Movie with Filmfaves: Get Customized Movie Recommendations Based on Your Tastes and Preferences</Text>
