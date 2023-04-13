@@ -32,7 +32,7 @@ export default () => {
     <div className={classes.wrapper}>
       <Container className={classes.inner}>
       <h1 className={classes.title}><Text component='span' variant='gradient' gradient={{from: 'teal', to: 'indigo', deg: 25}}>FilmFaves</Text> Your Personalized Movie Recommendation Engine</h1>
-      <Text className={classes.description} color='dimmed'>Find Your Next Favorite Movie with MovieFavs: Get Customized Movie Recommendations Based on Your Tastes and Preferences</Text>
+      <Text className={classes.description} color='dimmed'>Find Your Next Favorite Movie with Filmfaves: Get Customized Movie Recommendations Based on Your Tastes and Preferences</Text>
       <Button
             size="xl"
             className={classes.button}
