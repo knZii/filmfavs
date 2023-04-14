@@ -1,6 +1,6 @@
 import {MediaQuery, Container, Text, createStyles, rem, Button, ThemeIcon, SimpleGrid, ActionIcon, useMantineColorScheme} from '@mantine/core'
 import {IconMovie, IconSearch, IconDeviceTv, IconSunHigh, IconMoon} from "@tabler/icons-react"
-
+import Link from 'next/link'
 const useStyles = createStyles(theme => ({
   wrapper: {
     position: 'relative',
@@ -78,6 +78,8 @@ export default () => {
       <Text className={classes.description} color='dimmed'>Find Your Next Favorite Movie with Filmfaves: Get Customized Movie Recommendations Based on Your Tastes and Preferences</Text>
       <MediaQuery smallerThan='sm' styles={{display: 'none'}}>
       <Button
+            component={Link}
+            href="/suggest"
             size="xl"
             className={classes.button}
             variant="gradient"
