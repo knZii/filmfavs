@@ -1,4 +1,4 @@
-import {Container, createStyles, rem, Text, Center, Stepper, Group, Button, ActionIcon, useMantineColorScheme} from '@mantine/core'
+import {Container, createStyles, rem, Text, Center, Stepper, Group, Button, ActionIcon, useMantineColorScheme, MultiSelect} from '@mantine/core'
 import {IconMoon, IconSunHigh} from '@tabler/icons-react'
 import {useState} from 'react'
 
@@ -29,6 +29,12 @@ const useStyles = createStyles(theme => ({
       },
       stepper: {
         marginTop: rem(100)
+      },
+      genreselect: {
+        marginTop: rem(70),
+        marginBottom: rem(30),
+        width: '70%',
+        
       }
 }));
 export default () => {
@@ -38,6 +44,12 @@ export default () => {
     const [active, setActive] = useState(0);
     const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current));
     const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
+
+    const [favgenres, setFavgenres] = useState(Array<string>);
+    const genres = [
+      {value: 'action', label: 'Action'},
+      {value: 'comedy', label: 'Comedy'},
+      {value: 'horror', label: 'Horror'}]
     return (
         <div className={classes.wrapper}>
              <ActionIcon radius={15} variant='light' color={colorScheme =='light'?'gray.9':'teal'} size={50} mt={30} ml={30} onClick={() => toggleColorScheme()}>
@@ -49,7 +61,9 @@ export default () => {
                 </Center>
                 <Stepper className={classes.stepper} active={active} allowNextStepsSelect={false} color='teal.6'>
                     <Stepper.Step label="Genre" description="What Genre you like?">
-
+                      <Center va>
+                      <MultiSelect value={favgenres} onChange={setFavgenres}  transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }} variant='filled' className={classes.genreselect} searchable nothingFound="Nothing found!"  placeholder='Select genres you like up to 3!' data={genres} maxSelectedValues={3}/>
+                      </Center>
                     </Stepper.Step>
                     <Stepper.Step label="Mood" description="What is your mood?">
 
