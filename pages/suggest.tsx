@@ -61,7 +61,7 @@ export default () => {
                 </Center>
                 <Stepper className={classes.stepper} active={active} allowNextStepsSelect={false} color='teal.6'>
                     <Stepper.Step label="Genre" description="What Genre you like?">
-                      <Center va>
+                      <Center>
                       <MultiSelect value={favgenres} onChange={setFavgenres}  transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }} variant='filled' className={classes.genreselect} searchable nothingFound="Nothing found!"  placeholder='Select genres you like up to 3!' data={genres} maxSelectedValues={3}/>
                       </Center>
                     </Stepper.Step>
