@@ -48,6 +48,9 @@ export default () => {
     const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
 
     const [favgenres, setFavgenres] = useState(Array<string>);
+    const [favactor, setFavactor] = useState(Array<string>);
+    const [mood, setMood] = useState('');
+    const actors = ["actor1", "actor2", "actor3"]
     const genres = [
       {value: 'action', label: 'Action'},
       {value: 'comedy', label: 'Comedy'},
@@ -71,11 +74,13 @@ export default () => {
                       </Stepper.Step>
                       <Stepper.Step label="Mood" description="What is your mood?">
                         <Center>
-                        <NativeSelect data={["Bad", "Good"]}  variant='filled' className={classes.inputselect}/>
+                        <NativeSelect value={mood} onChange={event => setMood(event.currentTarget.value)}  data={["Bad", "Good"]}  variant='filled' className={classes.inputselect}/>
                         </Center>
                       </Stepper.Step>
                       <Stepper.Step label="Actor/Actress" description="What actor/actress You like?">
-
+                      <Center>
+                        <MultiSelect value={favactor} onChange={setFavactor}  transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }} variant='filled' className={classes.inputselect} searchable nothingFound="Nothing found!"  placeholder='Select genres you like up to 3!' data={actors} maxSelectedValues={3}/>
+                        </Center>
                       </Stepper.Step>
                   </Stepper>
                   </Flex>
