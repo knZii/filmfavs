@@ -1,4 +1,4 @@
-import {Container, createStyles, rem, Text, Center, Stepper, Group, Button, ActionIcon, useMantineColorScheme, MultiSelect, Flex} from '@mantine/core'
+import {Container, createStyles, rem, Text, Center, Stepper, Group, Button, ActionIcon, useMantineColorScheme, MultiSelect, Flex, NativeSelect} from '@mantine/core'
 import {IconMoon, IconSunHigh} from '@tabler/icons-react'
 import {useState} from 'react'
 
@@ -32,7 +32,7 @@ const useStyles = createStyles(theme => ({
       stepper: {
         marginTop: rem(100)
       },
-      genreselect: {
+      inputselect: {
         marginTop: rem(70),
         marginBottom: rem(30),
         width: '70%',
@@ -66,11 +66,13 @@ export default () => {
                   <Stepper breakpoint='sm' className={classes.stepper} active={active} allowNextStepsSelect={false} color='teal.6'>
                       <Stepper.Step label="Genre" description="What Genre you like?">
                         <Center>
-                        <MultiSelect value={favgenres} onChange={setFavgenres}  transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }} variant='filled' className={classes.genreselect} searchable nothingFound="Nothing found!"  placeholder='Select genres you like up to 3!' data={genres} maxSelectedValues={3}/>
+                        <MultiSelect value={favgenres} onChange={setFavgenres}  transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }} variant='filled' className={classes.inputselect} searchable nothingFound="Nothing found!"  placeholder='Select genres you like up to 3!' data={genres} maxSelectedValues={3}/>
                         </Center>
                       </Stepper.Step>
                       <Stepper.Step label="Mood" description="What is your mood?">
-
+                        <Center>
+                        <NativeSelect data={["Bad", "Good"]}  variant='filled' className={classes.inputselect}/>
+                        </Center>
                       </Stepper.Step>
                       <Stepper.Step label="Actor/Actress" description="What actor/actress You like?">
 
