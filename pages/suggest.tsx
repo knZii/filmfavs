@@ -46,6 +46,23 @@ const useStyles = createStyles(theme => ({
         top: rem(10),
         left: rem(5),
         }
+      },
+      favMoviContainer: {
+        fontSize: rem(25),
+        fontWeight: 700,
+        lineHeight: 1.1,
+        [theme.fn.smallerThan('sm')]: {
+          fontSize: rem(20),
+          lineHeight: 1.2
+        }
+      },
+      movieName: {
+        fontSize: rem(35),
+        marginBottom: rem(25),
+        [theme.fn.smallerThan('sm')]: {
+          fontSize: rem(27),
+          marginBottom: rem(17),
+        }
       }
 }));
 export default () => {
@@ -92,13 +109,18 @@ export default () => {
                         </Center>
                       </Stepper.Step>
                       <Stepper.Completed>
-
+                        <Flex direction='column' align='center' className={classes.favMoviContainer}>
+                        <h2>Your <Text component='span' variant='gradient' gradient={{from:'teal.4', to:'blue.7', deg:45}}>Fav</Text> movie is </h2>
+                          <Text className={classes.movieName} variant='gradient' gradient={{ from: '#ed6ea0', to: '#ec8c69', deg: 35 }}>Avengers</Text>
+                          <Text>by Marvel</Text>
+                        </Flex>
+                          
                       </Stepper.Completed>
                   </Stepper>
                   </Flex>
                   <Group position="center" mt="xl">
                   <Button variant="default" onClick={prevStep}>Back</Button>
-                  <Button onClick={nextStep} color='teal.6'>Next step</Button>
+                  <Button disabled={active==3} onClick={nextStep} color='teal.6'>{active==2?"Finish":(active==3?"Finished":"Next step")}</Button>
                   </Group>
                 </Flex>
             </Container>
