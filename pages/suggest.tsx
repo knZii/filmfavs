@@ -37,6 +37,15 @@ const useStyles = createStyles(theme => ({
         marginBottom: rem(30),
         width: '70%',
         
+      },
+      themechange: {
+        position: 'absolute',
+        top: rem(35),
+        left: rem(30),
+        [theme.fn.smallerThan('sm')]: {
+        top: rem(10),
+        left: rem(5),
+        }
       }
 }));
 export default () => {
@@ -57,7 +66,7 @@ export default () => {
       {value: 'horror', label: 'Horror'}]
     return (
         <div className={classes.wrapper}>
-             <ActionIcon radius={15} variant='light' color={colorScheme =='light'?'gray.9':'teal'} size={50} mt={30} ml={30} onClick={() => toggleColorScheme()}>
+             <ActionIcon className={classes.themechange} radius={15} variant='light' color={colorScheme =='light'?'gray.9':'teal'} size={50} onClick={() => toggleColorScheme()}>
         {colorScheme == 'light'?<IconMoon />:<IconSunHigh />}
         </ActionIcon>
             <Container className={classes.inner} >
