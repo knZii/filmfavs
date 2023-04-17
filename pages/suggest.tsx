@@ -79,7 +79,7 @@ export default () => {
                       </Stepper.Step>
                       <Stepper.Step label="Actor/Actress" description="What actor/actress You like?">
                       <Center>
-                        <MultiSelect value={favactor} onChange={setFavactor}  transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }} variant='filled' className={classes.inputselect} searchable nothingFound="Nothing found!"  placeholder='Select genres you like up to 3!' data={actors} maxSelectedValues={3}/>
+                        <MultiSelect value={favactor} onChange={setFavactor}  transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }} variant='filled' className={classes.inputselect} searchable nothingFound="Nothing found!"  placeholder='Select Acotrs you like up to 3!' data={actors} maxSelectedValues={3}/>
                         </Center>
                       </Stepper.Step>
                   </Stepper>
