@@ -70,7 +70,7 @@ export default () => {
         {colorScheme == 'light'?<IconMoon />:<IconSunHigh />}
         </ActionIcon>
             <Container className={classes.inner} >
-                <Flex direction='column' justify='space-between' style={{height: '70%'}}>
+                <Flex direction='column' justify='space-between' style={{height: '100%'}}>
                   <Flex direction='column'>
                     <Center>
                       <h1 className={classes.title}>Let's find your <Text component='span' variant='gradient' gradient={{from:'teal.4', to:'blue.7', deg:45}}>Fav</Text> movie together !</h1>
@@ -91,6 +91,9 @@ export default () => {
                         <MultiSelect value={favactor} onChange={setFavactor}  transitionProps={{ duration: 150, transition: 'pop-top-left', timingFunction: 'ease' }} variant='filled' className={classes.inputselect} searchable nothingFound="Nothing found!"  placeholder='Select Acotrs you like up to 3!' data={actors} maxSelectedValues={3}/>
                         </Center>
                       </Stepper.Step>
+                      <Stepper.Completed>
+
+                      </Stepper.Completed>
                   </Stepper>
                   </Flex>
                   <Group position="center" mt="xl">
